@@ -1,8 +1,19 @@
 require 'sinatra'
 
 
-get '/cat' do
-  "<div style='border: 3px dashed red'>
-    <img src='http://bit.ly/1eze8aE'>
-   </div>"
+get '/random-cat' do
+  @name = ["Amigo", "Oscar", "Viking"].sample
+  erb(:index)
+end
+
+# get '/named-cat' do
+  # p params[:name]
+  # @name = params[:name]
+  # erb(:index)
+# end
+
+get '/named-cat' do
+  p params[:name]
+  @name = params[:name]
+  erb(:index)
 end
